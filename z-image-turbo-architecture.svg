@@ -145,7 +145,7 @@
 <line x1="118" y1="1097.0" x2="325" y2="1097.0" class="amber" marker-end="url(#aha)"/>
 <rect x="956" y="150" width="700" height="896" rx="8" class="inset" />
 <text x="976" y="180" class="hd" text-anchor="start">JointTransformerBlock</text>
-<text x="976" y="200" class="sm" text-anchor="start">used by all 30 main layers and the 2 noise-refiner layers</text>
+<text x="976" y="200" class="sm" text-anchor="start">used by all 30 main DiT layers, as well as the 2 + 2 noise/context refiner layers</text>
 <rect x="1046.0" y="228" width="220" height="32" rx="8" class="node" />
 <text x="1156.0" y="249.0" class="t" text-anchor="middle">x</text>
 <rect x="1046.0" y="282" width="220" height="40" rx="8" class="norm" />

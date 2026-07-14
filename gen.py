@@ -224,7 +224,7 @@ S[-1] = S[-1].replace(' marker-end="url(#ah)"', ' marker-end="url(#aha)"')
 IX = 956
 rect(IX, 150, 700, 896, "inset")
 txt(IX + 20, 180, "JointTransformerBlock", "hd", "start")
-txt(IX + 20, 200, "used by all 30 main layers and the 2 noise-refiner layers", "sm", "start")
+txt(IX + 20, 200, "used by all 30 main DiT layers, as well as the 2 + 2 noise/context refiner layers", "sm", "start")
 
 dcx = IX + 200          # dataflow column center
 dw = 220
