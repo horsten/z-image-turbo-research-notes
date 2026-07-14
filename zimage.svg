@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1704" height="1880" viewBox="0 0 1704 1880" font-family="Inter, 'Segoe UI', system-ui, sans-serif">
+<defs>
+<marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+  <path d="M0,0 L9,4.5 L0,9 Z" fill="#4a5568"/>
+</marker>
+<marker id="aha" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+  <path d="M0,0 L9,4.5 L0,9 Z" fill="#c07d1e"/>
+</marker>
+<marker id="aht" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto">
+  <path d="M0,0 L8,4 L0,8 Z" fill="#2c7a6b"/>
+</marker>
+<style>
+  rect { stroke-width:1.5; }
+  .flow { stroke:#4a5568; stroke-width:1.7; fill:none; }
+  .amber { stroke:#c07d1e; stroke-width:2.6; fill:none; }
+  .amberconn { stroke:#c07d1e; stroke-width:1.6; fill:none; stroke-dasharray:5 3; }
+  .ropeconn { stroke:#2c7a6b; stroke-width:1.5; fill:none; stroke-dasharray:5 3; }
+  .resid { stroke:#8a94a2; stroke-width:1.5; fill:none; }
+  .lin  { fill:#e7ebf0; stroke:#51678a; }
+  .norm { fill:#eceef1; stroke:#737d8a; }
+  .attn { fill:#e7e2f2; stroke:#5c4a97; }
+  .ffn  { fill:#f4e2dd; stroke:#a85445; }
+  .rope { fill:#dcefe9; stroke:#2c7a6b; }
+  .mod  { fill:#f9e7c5; stroke:#c07d1e; }
+  .top  { fill:#ffffff; stroke:#9aa4b2; stroke-dasharray:5 3; }
+  .imgb { fill:#e3edf8; stroke:#35618e; }
+  .promptb { fill:#e2f1ec; stroke:#2c7a6b; }
+  .cont { fill:#f6f8fb; stroke:#51678a; stroke-width:2; }
+  .contghost { fill:#eef2f7; stroke:#9fb0c4; }
+  .inset { fill:#fcfcfd; stroke:#c7cfd8; stroke-width:1.5; }
+  .node { fill:#f4f6f8; stroke:#9aa4b2; }
+  .amberdot { fill:#c07d1e; stroke:#8a5a12; stroke-width:1; }
+  .sdot { fill:#fbeed0; stroke:#c07d1e; stroke-width:1.4; }
+  .sdotslash { stroke:#a85445; stroke-width:1.8; }
+  .title { font-size:27px; font-weight:700; fill:#17202a; }
+  .subtitle { font-size:14.5px; font-weight:400; fill:#55606c; }
+  .t   { font-size:14px; font-weight:600; fill:#17202a; }
+  .t2  { font-size:12.5px; font-weight:400; fill:#33404d; }
+  .d   { font-size:12px; font-weight:500; fill:#2c3e50; font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace; }
+  .cap { font-size:12px; font-weight:400; fill:#5a6672; }
+  .hd  { font-size:15.5px; font-weight:700; fill:#17202a; }
+  .tb  { font-size:18px; font-weight:700; fill:#17202a; }
+  .sm  { font-size:11px; font-weight:500; fill:#5a6672; }
+  .amb { font-size:11.5px; font-weight:600; fill:#9a6410; font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace; }
+  .eyebrow { font-size:12px; font-weight:700; fill:#8a94a2; letter-spacing:2px; }
+</style>
+</defs>
+<rect x="0" y="0" width="1704" height="1880" rx="0" class="top" fill="#ffffff" stroke="none"/>
+<text x="48" y="62" class="title" text-anchor="start">Z-Image-Turbo · Single-Stream Diffusion Transformer (NextDiT)</text>
+<text x="48" y="90" class="subtitle" text-anchor="start">Latent path · dim 3840 · 30 heads (head_dim 128) · parameters reconciled with a live model dump</text>
+<line x1="48" y1="104" x2="1656" y2="104" class="resid"/>
+<line x1="918" y1="130" x2="918" y2="1388" class="resid"/>
+<text x="120" y="128" class="eyebrow" text-anchor="start">MAIN FLOW</text>
+<text x="940" y="128" class="eyebrow" text-anchor="start">COMPONENT DETAIL</text>
+<rect x="42" y="150" width="152" height="40" rx="8" class="mod" />
+<text x="118.0" y="175.0" class="t" text-anchor="middle">t = 1 − timestep</text>
+<rect x="42" y="214" width="152" height="54" rx="8" class="mod" />
+<text x="118.0" y="233.0" class="t" text-anchor="middle">t_embedder</text>
+<text x="118.0" y="252.0" class="d" text-anchor="middle">→ adaln_input [256]</text>
+<line x1="118.0" y1="190" x2="118.0" y2="214" class="flow" marker-end="url(#ah)"/>
+<line x1="118" y1="268" x2="118" y2="1108" class="amber"/>
+<text x="102" y="392" class="amb" text-anchor="middle" transform="rotate(-90 102 392)">timestep conditioning</text>
+<rect x="222.0" y="210" width="236" height="58" rx="8" class="top" />
+<text x="340.0" y="231.0" class="t" text-anchor="middle">Latent image  z_t</text>
+<text x="340.0" y="250.0" class="d" text-anchor="middle">[16 × H × W]</text>
+<rect x="222.0" y="300" width="236" height="58" rx="8" class="top" />
+<text x="340.0" y="321.0" class="t" text-anchor="middle">Patchify · reshape</text>
+<text x="340.0" y="340.0" class="d" text-anchor="middle">2×2 block → [N, 64]</text>
+<rect x="222.0" y="390" width="236" height="58" rx="8" class="lin" />
+<text x="340.0" y="411.0" class="t" text-anchor="middle">x_embedder · Linear</text>
+<text x="340.0" y="430.0" class="d" text-anchor="middle">64 → 3840   → [N, 3840]</text>
+<rect x="222.0" y="480" width="236" height="96" rx="8" class="imgb" />
+<text x="340" y="508" class="t" text-anchor="middle">Noise Refiner</text>
+<text x="340" y="529" class="t2" text-anchor="middle">2 × JointTransformerBlock</text>
+<text x="340" y="550" class="cap" text-anchor="middle">modulated · image tokens only</text>
+<line x1="340.0" y1="268" x2="340.0" y2="300" class="flow" marker-end="url(#ah)"/>
+<line x1="340.0" y1="358" x2="340.0" y2="390" class="flow" marker-end="url(#ah)"/>
+<line x1="340.0" y1="448" x2="340" y2="480" class="flow" marker-end="url(#ah)"/>
+<circle cx="222.0" cy="528" r="6" class="amberdot"/>
+<rect x="532.0" y="210" width="236" height="58" rx="8" class="top" />
+<text x="650.0" y="231.0" class="t" text-anchor="middle">Qwen3-4B text encoder</text>
+<text x="650.0" y="250.0" class="d" text-anchor="middle">[L, 2560]</text>
+<rect x="532.0" y="300" width="236" height="72" rx="8" class="lin" />
+<text x="650.0" y="321.0" class="t" text-anchor="middle">cap_embedder</text>
+<text x="650.0" y="340.0" class="t2" text-anchor="middle">RMSNorm 2560 · Linear 2560→3840</text>
+<text x="650.0" y="358.0" class="d" text-anchor="middle">→ [L, 3840]</text>
+<rect x="532.0" y="480" width="236" height="96" rx="8" class="promptb" />
+<circle cx="550.0" cy="500" r="7" class="sdot"/>
+<line x1="543.0" y1="507" x2="557.0" y2="493" class="sdotslash"/>
+<text x="650" y="504" class="t" text-anchor="middle">Context Refiner</text>
+<text x="650" y="524" class="t2" text-anchor="middle">2 × JointTransformerBlock</text>
+<text x="650" y="545" class="cap" text-anchor="middle">prompt tokens only</text>
+<text x="650" y="563" class="cap" text-anchor="middle">unmodulated — no timestep</text>
+<line x1="650.0" y1="268" x2="650.0" y2="300" class="flow" marker-end="url(#ah)"/>
+<line x1="650.0" y1="372" x2="650" y2="480" class="flow" marker-end="url(#ah)"/>
+<rect x="350" y="592" width="290" height="92" rx="8" class="rope" />
+<text x="495" y="616" class="t" text-anchor="middle">rope_embedder (EmbedND) · shared</text>
+<text x="495" y="636" class="d" text-anchor="middle">head_dim 128 = 16+56+56  over (t, y, x)</text>
+<text x="495" y="658" class="cap" text-anchor="middle">computed at embed · used by every attention</text>
+<text x="495" y="675" class="cap" text-anchor="middle">(both refiners and all main layers)</text>
+<rect x="232" y="615" width="104" height="46" rx="8" class="top" />
+<text x="284.0" y="630.0" class="t" text-anchor="middle">pos-ids img</text>
+<text x="284.0" y="649.0" class="d" text-anchor="middle">(tₓ, y, x)</text>
+<rect x="654" y="615" width="104" height="46" rx="8" class="top" />
+<text x="706.0" y="630.0" class="t" text-anchor="middle">pos-ids txt</text>
+<text x="706.0" y="649.0" class="d" text-anchor="middle">(1..L, 0, 0)</text>
+<line x1="336" y1="638.0" x2="350" y2="638" class="ropeconn" marker-end="url(#ah)"/>
+<line x1="654" y1="638.0" x2="640" y2="638" class="ropeconn" marker-end="url(#ah)"/>
+<rect x="325" y="720" width="340" height="58" rx="8" class="top" />
+<text x="495.0" y="741.0" class="t" text-anchor="middle">Concat  [ prompt ; image ]</text>
+<text x="495.0" y="760.0" class="d" text-anchor="middle">→ [L+N, 3840]</text>
+<polyline points="340,576 340,700 435.0,720" fill="none" class="flow" marker-end="url(#ah)"/>
+<polyline points="650,576 650,700 555.0,720" fill="none" class="flow" marker-end="url(#ah)"/>
+<polyline points="495,684 495,714" fill="none" class="ropeconn" marker-end="url(#ah)"/>
+<rect x="327" y="826" width="360" height="168" rx="8" class="contghost" />
+<rect x="321" y="832" width="360" height="168" rx="8" class="contghost" />
+<rect x="315" y="838" width="360" height="168" rx="8" class="cont" />
+<text x="495.0" y="880" class="tb" text-anchor="middle">Unified DiT</text>
+<text x="495.0" y="904" class="t2" text-anchor="middle">30 × JointTransformerBlock</text>
+<rect x="609" y="852" width="52" height="26" rx="13" class="mod" />
+<text x="635" y="869" class="t" text-anchor="middle">×30</text>
+<text x="495.0" y="936" class="cap" text-anchor="middle">sandwich RMSNorm · scale-only AdaLN (no shift)</text>
+<text x="495.0" y="956" class="cap" text-anchor="middle">tanh-bounded gates · SwiGLU feed-forward</text>
+<text x="495.0" y="984" class="d" text-anchor="middle">residual stream → [L+N, 3840]</text>
+<line x1="495.0" y1="778" x2="495.0" y2="838" class="flow" marker-end="url(#ah)"/>
+<circle cx="315" cy="922.0" r="6" class="amberdot"/>
+<line x1="675" y1="868" x2="956" y2="868" class="amberconn" marker-end="url(#ah)"/>
+<text x="771" y="862" class="sm" text-anchor="middle">→ block inset</text>
+<rect x="325" y="1058" width="340" height="78" rx="8" class="lin" />
+<text x="495.0" y="1082.0" class="t" text-anchor="middle">Final Layer</text>
+<text x="495.0" y="1101.0" class="t2" text-anchor="middle">LayerNorm(affine=False) · AdaLN scale · Linear 3840→64</text>
+<text x="495.0" y="1119.0" class="d" text-anchor="middle">→ [·, 64]</text>
+<line x1="495.0" y1="1006" x2="495.0" y2="1058" class="flow" marker-end="url(#ah)"/>
+<circle cx="325" cy="1097.0" r="6" class="amberdot"/>
+<rect x="345" y="1178" width="300" height="58" rx="8" class="top" />
+<text x="495.0" y="1199.0" class="t" text-anchor="middle">Unpatchify · reshape</text>
+<text x="495.0" y="1218.0" class="d" text-anchor="middle">[N, 64] → [16, H, W]</text>
+<rect x="345" y="1268" width="300" height="58" rx="8" class="imgb" />
+<text x="495.0" y="1289.0" class="t" text-anchor="middle">Latent output</text>
+<text x="495.0" y="1308.0" class="d" text-anchor="middle">−vθ   ·   [16 × H × W]</text>
+<line x1="495.0" y1="1136" x2="495.0" y2="1178" class="flow" marker-end="url(#ah)"/>
+<line x1="495.0" y1="1236" x2="495.0" y2="1268" class="flow" marker-end="url(#ah)"/>
+<line x1="118" y1="528" x2="222.0" y2="528" class="amber" marker-end="url(#aha)"/>
+<line x1="118" y1="922.0" x2="315" y2="922.0" class="amber" marker-end="url(#aha)"/>
+<line x1="118" y1="1097.0" x2="325" y2="1097.0" class="amber" marker-end="url(#aha)"/>
+<rect x="956" y="150" width="700" height="896" rx="8" class="inset" />
+<text x="976" y="180" class="hd" text-anchor="start">JointTransformerBlock</text>
+<text x="976" y="200" class="sm" text-anchor="start">used by all 30 main layers and the 2 noise-refiner layers</text>
+<rect x="1046.0" y="228" width="220" height="32" rx="8" class="node" />
+<text x="1156.0" y="249.0" class="t" text-anchor="middle">x</text>
+<rect x="1046.0" y="282" width="220" height="40" rx="8" class="norm" />
+<text x="1156.0" y="294.0" class="t" text-anchor="middle">attention_norm1</text>
+<text x="1156.0" y="313.0" class="t2" text-anchor="middle">RMSNorm 3840</text>
+<rect x="1046.0" y="344" width="220" height="30" rx="8" class="mod" />
+<text x="1156.0" y="364.0" class="t" text-anchor="middle">⊗  1 + scale_msa</text>
+<rect x="1046.0" y="396" width="220" height="46" rx="8" class="attn" />
+<text x="1156.0" y="411.0" class="t" text-anchor="middle">Attention</text>
+<text x="1156.0" y="430.0" class="t2" text-anchor="middle">→ inset A</text>
+<rect x="1046.0" y="464" width="220" height="40" rx="8" class="norm" />
+<text x="1156.0" y="476.0" class="t" text-anchor="middle">attention_norm2</text>
+<text x="1156.0" y="495.0" class="t2" text-anchor="middle">RMSNorm 3840</text>
+<rect x="1046.0" y="526" width="220" height="30" rx="8" class="mod" />
+<text x="1156.0" y="546.0" class="t" text-anchor="middle">⊙  tanh(gate_msa)</text>
+<rect x="1046.0" y="578" width="220" height="30" rx="8" class="node" />
+<text x="1156.0" y="598.0" class="t" text-anchor="middle">⊕  residual add</text>
+<rect x="1046.0" y="630" width="220" height="40" rx="8" class="norm" />
+<text x="1156.0" y="642.0" class="t" text-anchor="middle">ffn_norm1</text>
+<text x="1156.0" y="661.0" class="t2" text-anchor="middle">RMSNorm 3840</text>
+<rect x="1046.0" y="692" width="220" height="30" rx="8" class="mod" />
+<text x="1156.0" y="712.0" class="t" text-anchor="middle">⊗  1 + scale_mlp</text>
+<rect x="1046.0" y="744" width="220" height="46" rx="8" class="ffn" />
+<text x="1156.0" y="759.0" class="t" text-anchor="middle">Feed-Forward · SwiGLU</text>
+<text x="1156.0" y="778.0" class="t2" text-anchor="middle">→ inset B</text>
+<rect x="1046.0" y="812" width="220" height="40" rx="8" class="norm" />
+<text x="1156.0" y="824.0" class="t" text-anchor="middle">ffn_norm2</text>
+<text x="1156.0" y="843.0" class="t2" text-anchor="middle">RMSNorm 3840</text>
+<rect x="1046.0" y="874" width="220" height="30" rx="8" class="mod" />
+<text x="1156.0" y="894.0" class="t" text-anchor="middle">⊙  tanh(gate_mlp)</text>
+<rect x="1046.0" y="926" width="220" height="30" rx="8" class="node" />
+<text x="1156.0" y="946.0" class="t" text-anchor="middle">⊕  residual add</text>
+<rect x="1046.0" y="978" width="220" height="32" rx="8" class="node" />
+<text x="1156.0" y="999.0" class="t" text-anchor="middle">x</text>
+<line x1="1156.0" y1="260" x2="1156.0" y2="282" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="322" x2="1156.0" y2="344" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="374" x2="1156.0" y2="396" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="442" x2="1156.0" y2="464" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="504" x2="1156.0" y2="526" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="556" x2="1156.0" y2="578" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="608" x2="1156.0" y2="630" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="670" x2="1156.0" y2="692" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="722" x2="1156.0" y2="744" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="790" x2="1156.0" y2="812" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="852" x2="1156.0" y2="874" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="904" x2="1156.0" y2="926" class="flow" marker-end="url(#ah)"/>
+<line x1="1156.0" y1="956" x2="1156.0" y2="978" class="flow" marker-end="url(#ah)"/>
+<polyline points="1156.0,260 1020.0,266 1020.0,593.0 1046.0,593.0" fill="none" class="resid" marker-end="url(#ah)"/>
+<polyline points="1156.0,608 1020.0,614 1020.0,941.0 1046.0,941.0" fill="none" class="resid" marker-end="url(#ah)"/>
+<text x="1014.0" y="426.5" class="sm" text-anchor="end">residual</text>
+<rect x="1396.0" y="470" width="200" height="40" rx="8" class="mod" />
+<text x="1496.0" y="495.0" class="t" text-anchor="middle">adaln_input [256]</text>
+<rect x="1396.0" y="542" width="200" height="52" rx="8" class="mod" />
+<text x="1496.0" y="560.0" class="t" text-anchor="middle">adaLN_modulation</text>
+<text x="1496.0" y="579.0" class="d" text-anchor="middle">Linear 256 → 15360</text>
+<rect x="1396.0" y="624" width="200" height="34" rx="8" class="mod" />
+<text x="1496.0" y="646.0" class="t" text-anchor="middle">chunk × 4</text>
+<line x1="1496.0" y1="510" x2="1496.0" y2="542" class="flow" marker-end="url(#ah)"/>
+<line x1="1496.0" y1="594" x2="1496.0" y2="624" class="flow" marker-end="url(#ah)"/>
+<polyline points="1496.0,658 1496.0,670 1300,670" fill="none" class="amberconn"/>
+<line x1="1300" y1="359.0" x2="1300" y2="889.0" class="amberconn"/>
+<line x1="1300" y1="359.0" x2="1266.0" y2="359.0" class="amberconn"/>
+<line x1="1300" y1="541.0" x2="1266.0" y2="541.0" class="amberconn"/>
+<line x1="1300" y1="707.0" x2="1266.0" y2="707.0" class="amberconn"/>
+<line x1="1300" y1="889.0" x2="1266.0" y2="889.0" class="amberconn"/>
+<text x="1496" y="702" class="amb" text-anchor="middle">4 chunks × 3840</text>
+<text x="1496" y="732" class="cap" text-anchor="middle">scale-only — no shift term</text>
+<text x="1496" y="750" class="cap" text-anchor="middle">(cf. Flux, which also shifts)</text>
+<text x="1496" y="768" class="cap" text-anchor="middle">gates are tanh-bounded</text>
+<rect x="956" y="1078" width="700" height="648" rx="8" class="inset" />
+<text x="976" y="1108" class="hd" text-anchor="start">Inset A — Attention (JointAttention)</text>
+<text x="976" y="1128" class="sm" text-anchor="start">no GQA: n_kv_heads = n_heads = 30  ·  bias-free projections</text>
+<rect x="1096.0" y="1152" width="320" height="34" rx="8" class="node" />
+<text x="1256.0" y="1174.0" class="t" text-anchor="middle">x   [·, 3840]</text>
+<rect x="1096.0" y="1232" width="320" height="40" rx="8" class="lin" />
+<text x="1256.0" y="1257.0" class="t" text-anchor="middle">qkv · Linear 3840 → 11520</text>
+<rect x="1096.0" y="1316" width="320" height="40" rx="8" class="top" />
+<text x="1256.0" y="1328.0" class="t" text-anchor="middle">split → Q, K, V</text>
+<text x="1256.0" y="1347.0" class="d" text-anchor="middle">30 × 128 each</text>
+<rect x="1096.0" y="1400" width="320" height="40" rx="8" class="norm" />
+<text x="1256.0" y="1412.0" class="t" text-anchor="middle">q_norm / k_norm · RMSNorm(128)</text>
+<text x="1256.0" y="1431.0" class="t2" text-anchor="middle">on Q, K</text>
+<rect x="1096.0" y="1484" width="320" height="40" rx="8" class="rope" />
+<text x="1256.0" y="1509.0" class="t" text-anchor="middle">RoPE  →  Q, K</text>
+<rect x="1096.0" y="1568" width="320" height="40" rx="8" class="attn" />
+<text x="1256.0" y="1593.0" class="t" text-anchor="middle">Scaled Dot-Product Attention</text>
+<rect x="1096.0" y="1652" width="320" height="40" rx="8" class="lin" />
+<text x="1256.0" y="1677.0" class="t" text-anchor="middle">out · Linear 3840 → 3840</text>
+<line x1="1256.0" y1="1186" x2="1256.0" y2="1232" class="flow" marker-end="url(#ah)"/>
+<line x1="1256.0" y1="1272" x2="1256.0" y2="1316" class="flow" marker-end="url(#ah)"/>
+<line x1="1256.0" y1="1356" x2="1256.0" y2="1400" class="flow" marker-end="url(#ah)"/>
+<line x1="1256.0" y1="1440" x2="1256.0" y2="1484" class="flow" marker-end="url(#ah)"/>
+<line x1="1256.0" y1="1524" x2="1256.0" y2="1568" class="flow" marker-end="url(#ah)"/>
+<line x1="1256.0" y1="1608" x2="1256.0" y2="1652" class="flow" marker-end="url(#ah)"/>
+<line x1="1512.0" y1="1504.0" x2="1416.0" y2="1504.0" class="ropeconn" marker-end="url(#ah)"/>
+<text x="1514.0" y="1482.0" class="sm" text-anchor="start">freqs_cis</text>
+<text x="1514.0" y="1496.0" class="sm" text-anchor="start">(rope_embedder)</text>
+<rect x="48" y="1380" width="430" height="372" rx="8" class="inset" />
+<text x="68" y="1410" class="hd" text-anchor="start">Inset B — Feed-Forward · SwiGLU</text>
+<text x="68" y="1430" class="sm" text-anchor="start">gated MLP, not a plain 2-layer MLP</text>
+<rect x="153" y="1448" width="220" height="34" rx="8" class="node" />
+<text x="263.0" y="1470.0" class="t" text-anchor="middle">x   [·, 3840]</text>
+<rect x="87" y="1504" width="168" height="46" rx="8" class="lin" />
+<text x="171.0" y="1519.0" class="t" text-anchor="middle">w1 · Linear</text>
+<text x="171.0" y="1538.0" class="d" text-anchor="middle">3840 → 10240</text>
+<rect x="271" y="1504" width="168" height="46" rx="8" class="lin" />
+<text x="355.0" y="1519.0" class="t" text-anchor="middle">w3 · Linear</text>
+<text x="355.0" y="1538.0" class="d" text-anchor="middle">3840 → 10240</text>
+<rect x="87" y="1574" width="168" height="38" rx="8" class="ffn" />
+<text x="171.0" y="1598.0" class="t" text-anchor="middle">SiLU</text>
+<rect x="233" y="1630" width="60" height="38" rx="8" class="node" />
+<text x="263.0" y="1654.0" class="t" text-anchor="middle">⊙</text>
+<rect x="137" y="1682" width="252" height="56" rx="8" class="lin" />
+<text x="263.0" y="1702.0" class="t" text-anchor="middle">w2 · Linear 10240 → 3840</text>
+<text x="263.0" y="1721.0" class="d" text-anchor="middle">w2( SiLU(w1·x) ⊙ w3·x )</text>
+<polyline points="263.0,1482 171.0,1490 171.0,1504" fill="none" class="flow" marker-end="url(#ah)"/>
+<polyline points="263.0,1482 355.0,1490 355.0,1504" fill="none" class="flow" marker-end="url(#ah)"/>
+<line x1="171.0" y1="1550" x2="171.0" y2="1574" class="flow" marker-end="url(#ah)"/>
+<polyline points="171.0,1612 171.0,1649.0 233,1649.0" fill="none" class="flow" marker-end="url(#ah)"/>
+<polyline points="355.0,1550 355.0,1649.0 293,1649.0" fill="none" class="flow" marker-end="url(#ah)"/>
+<polyline points="263.0,1668 263.0,1674 263.0,1674 263.0,1682" fill="none" class="flow" marker-end="url(#ah)"/>
+<rect x="498" y="1380" width="402" height="372" rx="8" class="inset" />
+<text x="518" y="1410" class="hd" text-anchor="start">Timestep conditioning</text>
+<rect x="504.0" y="1444" width="264" height="34" rx="8" class="mod" />
+<text x="636.0" y="1466.0" class="t" text-anchor="middle">t = 1 − timestep</text>
+<rect x="504.0" y="1494" width="264" height="40" rx="8" class="mod" />
+<text x="636.0" y="1506.0" class="t" text-anchor="middle">sinusoidal embedding</text>
+<text x="636.0" y="1525.0" class="d" text-anchor="middle">→ 256</text>
+<rect x="504.0" y="1550" width="264" height="56" rx="8" class="mod" />
+<text x="636.0" y="1570.0" class="t" text-anchor="middle">t_embedder MLP</text>
+<text x="636.0" y="1589.0" class="t2" text-anchor="middle">Linear 256→1024 · SiLU · Linear 1024→256</text>
+<rect x="504.0" y="1622" width="264" height="34" rx="8" class="mod" />
+<text x="636.0" y="1644.0" class="t" text-anchor="middle">adaln_input  [256]</text>
+<line x1="636.0" y1="1478" x2="636.0" y2="1494" class="flow" marker-end="url(#ah)"/>
+<line x1="636.0" y1="1534" x2="636.0" y2="1550" class="flow" marker-end="url(#ah)"/>
+<line x1="636.0" y1="1606" x2="636.0" y2="1622" class="flow" marker-end="url(#ah)"/>
+<text x="636" y="1690" class="cap" text-anchor="middle">the same 256-d vector drives AdaLN in the noise</text>
+<text x="636" y="1708" class="cap" text-anchor="middle">refiner, all 30 main blocks and the final layer —</text>
+<text x="636" y="1726" class="cap" text-anchor="middle">but never the context refiner.</text>
+<rect x="48" y="1772" width="1608" height="76" rx="10" class="top" stroke="#c7cfd8" stroke-dasharray="0"/>
+<text x="64" y="1796" class="eyebrow" text-anchor="start">LEGEND</text>
+<rect x="180" y="1786" width="22" height="16" rx="4" class="lin" />
+<text x="210" y="1799" class="cap" text-anchor="start">Linear / projection</text>
+<rect x="385" y="1786" width="22" height="16" rx="4" class="norm" />
+<text x="415" y="1799" class="cap" text-anchor="start">Norm (RMS / Layer)</text>
+<rect x="590" y="1786" width="22" height="16" rx="4" class="attn" />
+<text x="620" y="1799" class="cap" text-anchor="start">Attention</text>
+<rect x="795" y="1786" width="22" height="16" rx="4" class="ffn" />
+<text x="825" y="1799" class="cap" text-anchor="start">SwiGLU FFN</text>
+<rect x="1000" y="1786" width="22" height="16" rx="4" class="rope" />
+<text x="1030" y="1799" class="cap" text-anchor="start">RoPE</text>
+<rect x="1205" y="1786" width="22" height="16" rx="4" class="mod" />
+<text x="1235" y="1799" class="cap" text-anchor="start">Modulation / conditioning</text>
+<rect x="1410" y="1786" width="22" height="16" rx="4" class="top" />
+<text x="1440" y="1799" class="cap" text-anchor="start">Tensor op (reshape / concat)</text>
+<line x1="180" y1="1826" x2="206" y2="1826" class="flow"/>
+<text x="214" y="1830" class="cap" text-anchor="start">data flow</text>
+<line x1="320" y1="1826" x2="346" y2="1826" class="amber"/>
+<text x="354" y="1830" class="cap" text-anchor="start">timestep conditioning</text>
+<line x1="560" y1="1826" x2="586" y2="1826" class="ropeconn"/>
+<text x="594" y="1830" class="cap" text-anchor="start">RoPE / modulation routing</text>
+<circle cx="830" cy="1826" r="6" class="amberdot"/>
+<text x="846" y="1830" class="cap" text-anchor="start">modulated</text>
+<circle cx="950" cy="1826" r="7" class="sdot"/>
+<line x1="943" y1="1833" x2="957" y2="1819" class="sdotslash"/>
+<text x="966" y="1830" class="cap" text-anchor="start">unmodulated</text>
+<text x="1120" y="1830" class="sm" text-anchor="start">dims shown per token unless noted; N = image patches, L = prompt tokens</text>
+</svg>
