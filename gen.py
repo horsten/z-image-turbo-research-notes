@@ -377,5 +377,5 @@ txt(1120, yl2 + 4, "dims shown per token unless noted; N = image patches, L = pr
 
 S.append("</svg>")
 
-open("zimage.svg", "w").write("\n".join(S))
+open("z-image-turbo-architecture.svg", "w").write("\n".join(S))
 print("written", len("\n".join(S)), "bytes")
